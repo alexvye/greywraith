@@ -11,9 +11,9 @@ import SpriteKit
 struct PhysicsCategory {
     static let None      : UInt32 = 0
     static let All       : UInt32 = UInt32.max
-    static let Player    : UInt32 = 0b11
-    static let Monster   : UInt32 = 0b1       // 1
-    static let Projectile: UInt32 = 0b10      // 2
+    static let Player    : UInt32 = 0b1        // 1
+    static let Monster   : UInt32 = 0b10       // 2
+    static let Projectile: UInt32 = 0b100      // 3
 }
 
 func + (left: CGPoint, right: CGPoint) -> CGPoint {
@@ -314,13 +314,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
         } else if ((firstBody.categoryBitMask & PhysicsCategory.Player != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Monster != 0)) {
-            projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
+            playerDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
         }
         
     }
     
     func projectileDidCollideWithMonster(projectile:SKSpriteNode, monster:SKSpriteNode) {
 
+        print("projectile collide w/monster")
+        
         projectile.removeFromParent()
         monster.removeFromParent()
         monstersDestroyed = monstersDestroyed + 1
@@ -334,6 +336,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func playerDidCollideWithMonster(player:SKSpriteNode, monster:SKSpriteNode) {
+        
+        print("player collide w/monster")
+        
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)
         let gameOverScene = GameOverScene(size: self.size, won: false)
         self.view?.presentScene(gameOverScene, transition: reveal)

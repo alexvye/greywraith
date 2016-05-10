@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GreyWraith/GameScene.swift"
-            timestampString = "484586435.517811"
+            timestampString = "484588604.000632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "configureStage()"
             landmarkType = "5">
          </BreakpointContent>
