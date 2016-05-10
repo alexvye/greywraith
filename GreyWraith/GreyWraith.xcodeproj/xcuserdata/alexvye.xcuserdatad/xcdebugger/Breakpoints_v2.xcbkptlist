@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreyWraith/GameScene.swift"
+            timestampString = "484586435.517811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "addMonster()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreyWraith/GameScene.swift"
+            timestampString = "484586435.517811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.PLAYER_BOUNDARY.setter : CoreGraphics.CGFloat"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483712808.593933"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.init (size : __C.CGSize) -&gt; GreyWraith.GameScene"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483712808.594189"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "206">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.init () -&gt; GreyWraith.GameScene"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483712808.594355"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GreyWraith.GameScene&gt;"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483712808.594566"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "191">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreyWraith/GameScene.swift"
+            timestampString = "484586435.517811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.init (size : __C.CGSize) -&gt; GreyWraith.GameScene"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483714166.076228"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.init () -&gt; GreyWraith.GameScene"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483714166.076488"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GreyWraith.GameScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GreyWraith.GameScene&gt;"
+                  moduleName = "GreyWraith"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexvye/Documents/gitdev/GreyWraith/GreyWraith/GameScene.swift"
+                  timestampString = "483714166.076678"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreyWraith/GameScene.swift"
+            timestampString = "484586435.517811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "touchesEnded(_:withEvent:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreyWraith/GameScene.swift"
+            timestampString = "484586435.517811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "configureStage()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

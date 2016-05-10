@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A29E1C91CCE528800773991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1C81CCE528800773991 /* AppDelegate.swift */; };
+		9A29E1CD1CCE528800773991 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1CC1CCE528800773991 /* GameScene.swift */; };
+		9A29E1CF1CCE528800773991 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1CE1CCE528800773991 /* GameViewController.swift */; };
+		9A29E1D21CCE528800773991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E1D01CCE528800773991 /* Main.storyboard */; };
+		9A29E1D41CCE528800773991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E1D31CCE528800773991 /* Assets.xcassets */; };
+		9A29E1D71CCE528800773991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E1D51CCE528800773991 /* LaunchScreen.storyboard */; };
+		9A29E1E21CCE528800773991 /* GreyWraithTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1E11CCE528800773991 /* GreyWraithTests.swift */; };
+		9A29E1ED1CCE528800773991 /* GreyWraithUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1EC1CCE528800773991 /* GreyWraithUITests.swift */; };
+		9A29E2011CCE547100773991 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E2001CCE547100773991 /* sprites.atlas */; };
+		9A29E2051CCE6B2500773991 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E2041CCE6B2500773991 /* GameOverScene.swift */; };
+		9A29E20B1CCE6EAA00773991 /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E20A1CCE6EAA00773991 /* background-music-aac.caf */; };
+		9A29E20D1CCE6EBA00773991 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */; };
+		9A29E20F1CCE6F1D00773991 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E20E1CCE6F1D00773991 /* MenuScene.swift */; };
+		9A2B44521CD2B7940094FF67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A29E1DE1CCE528800773991 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A29E1BD1CCE528800773991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A29E1C41CCE528800773991;
+			remoteInfo = GreyWraith;
+		};
+		9A29E1E91CCE528800773991 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A29E1BD1CCE528800773991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A29E1C41CCE528800773991;
+			remoteInfo = GreyWraith;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A29E1C51CCE528800773991 /* GreyWraith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreyWraith.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A29E1C81CCE528800773991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A29E1CC1CCE528800773991 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		9A29E1CE1CCE528800773991 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		9A29E1D11CCE528800773991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A29E1D31CCE528800773991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A29E1D61CCE528800773991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A29E1D81CCE528800773991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A29E1DD1CCE528800773991 /* GreyWraithTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreyWraithTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A29E1E11CCE528800773991 /* GreyWraithTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreyWraithTests.swift; sourceTree = "<group>"; };
+		9A29E1E31CCE528800773991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A29E1E81CCE528800773991 /* GreyWraithUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreyWraithUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A29E1EC1CCE528800773991 /* GreyWraithUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreyWraithUITests.swift; sourceTree = "<group>"; };
+		9A29E1EE1CCE528800773991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A29E2001CCE547100773991 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = sprites.atlas; path = ../sprites.atlas; sourceTree = "<group>"; };
+		9A29E2041CCE6B2500773991 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		9A29E20A1CCE6EAA00773991 /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
+		9A29E20E1CCE6F1D00773991 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A29E1C21CCE528800773991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A2B44521CD2B7940094FF67 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A29E1DA1CCE528800773991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A29E1E51CCE528800773991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A29E1BC1CCE528800773991 = {
+			isa = PBXGroup;
+			children = (
+				9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */,
+				9A29E1C71CCE528800773991 /* GreyWraith */,
+				9A29E1E01CCE528800773991 /* GreyWraithTests */,
+				9A29E1EB1CCE528800773991 /* GreyWraithUITests */,
+				9A29E1C61CCE528800773991 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A29E1C61CCE528800773991 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A29E1C51CCE528800773991 /* GreyWraith.app */,
+				9A29E1DD1CCE528800773991 /* GreyWraithTests.xctest */,
+				9A29E1E81CCE528800773991 /* GreyWraithUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A29E1C71CCE528800773991 /* GreyWraith */ = {
+			isa = PBXGroup;
+			children = (
+				9A29E1C81CCE528800773991 /* AppDelegate.swift */,
+				9A29E2061CCE6B3300773991 /* art */,
+				9A29E1D31CCE528800773991 /* Assets.xcassets */,
+				9A29E2041CCE6B2500773991 /* GameOverScene.swift */,
+				9A29E1CC1CCE528800773991 /* GameScene.swift */,
+				9A29E1CE1CCE528800773991 /* GameViewController.swift */,
+				9A29E20E1CCE6F1D00773991 /* MenuScene.swift */,
+				9A29E1D81CCE528800773991 /* Info.plist */,
+				9A29E1D51CCE528800773991 /* LaunchScreen.storyboard */,
+				9A29E1D01CCE528800773991 /* Main.storyboard */,
+			);
+			path = GreyWraith;
+			sourceTree = "<group>";
+		};
+		9A29E1E01CCE528800773991 /* GreyWraithTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A29E1E11CCE528800773991 /* GreyWraithTests.swift */,
+				9A29E1E31CCE528800773991 /* Info.plist */,
+			);
+			path = GreyWraithTests;
+			sourceTree = "<group>";
+		};
+		9A29E1EB1CCE528800773991 /* GreyWraithUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9A29E1EC1CCE528800773991 /* GreyWraithUITests.swift */,
+				9A29E1EE1CCE528800773991 /* Info.plist */,
+			);
+			path = GreyWraithUITests;
+			sourceTree = "<group>";
+		};
+		9A29E2061CCE6B3300773991 /* art */ = {
+			isa = PBXGroup;
+			children = (
+				9A29E2091CCE6E8F00773991 /* sounds */,
+				9A29E2001CCE547100773991 /* sprites.atlas */,
+			);
+			name = art;
+			sourceTree = "<group>";
+		};
+		9A29E2091CCE6E8F00773991 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */,
+				9A29E20A1CCE6EAA00773991 /* background-music-aac.caf */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A29E1C41CCE528800773991 /* GreyWraith */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A29E1F11CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraith" */;
+			buildPhases = (
+				9A29E1C11CCE528800773991 /* Sources */,
+				9A29E1C21CCE528800773991 /* Frameworks */,
+				9A29E1C31CCE528800773991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GreyWraith;
+			productName = GreyWraith;
+			productReference = 9A29E1C51CCE528800773991 /* GreyWraith.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A29E1DC1CCE528800773991 /* GreyWraithTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A29E1F41CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraithTests" */;
+			buildPhases = (
+				9A29E1D91CCE528800773991 /* Sources */,
+				9A29E1DA1CCE528800773991 /* Frameworks */,
+				9A29E1DB1CCE528800773991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A29E1DF1CCE528800773991 /* PBXTargetDependency */,
+			);
+			name = GreyWraithTests;
+			productName = GreyWraithTests;
+			productReference = 9A29E1DD1CCE528800773991 /* GreyWraithTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9A29E1E71CCE528800773991 /* GreyWraithUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A29E1F71CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraithUITests" */;
+			buildPhases = (
+				9A29E1E41CCE528800773991 /* Sources */,
+				9A29E1E51CCE528800773991 /* Frameworks */,
+				9A29E1E61CCE528800773991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A29E1EA1CCE528800773991 /* PBXTargetDependency */,
+			);
+			name = GreyWraithUITests;
+			productName = GreyWraithUITests;
+			productReference = 9A29E1E81CCE528800773991 /* GreyWraithUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A29E1BD1CCE528800773991 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				KnownAssetTags = (
+					"com.apple.gamecenter.Leaderboard Set",
+				);
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Alex Vye";
+				TargetAttributes = {
+					9A29E1C41CCE528800773991 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = X6A4X9GJKQ;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
+					};
+					9A29E1DC1CCE528800773991 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 9A29E1C41CCE528800773991;
+					};
+					9A29E1E71CCE528800773991 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 9A29E1C41CCE528800773991;
+					};
+				};
+			};
+			buildConfigurationList = 9A29E1C01CCE528800773991 /* Build configuration list for PBXProject "GreyWraith" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A29E1BC1CCE528800773991;
+			productRefGroup = 9A29E1C61CCE528800773991 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A29E1C41CCE528800773991 /* GreyWraith */,
+				9A29E1DC1CCE528800773991 /* GreyWraithTests */,
+				9A29E1E71CCE528800773991 /* GreyWraithUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A29E1C31CCE528800773991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A29E20B1CCE6EAA00773991 /* background-music-aac.caf in Resources */,
+				9A29E1D71CCE528800773991 /* LaunchScreen.storyboard in Resources */,
+				9A29E1D41CCE528800773991 /* Assets.xcassets in Resources */,
+				9A29E2011CCE547100773991 /* sprites.atlas in Resources */,
+				9A29E1D21CCE528800773991 /* Main.storyboard in Resources */,
+				9A29E20D1CCE6EBA00773991 /* pew-pew-lei.caf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A29E1DB1CCE528800773991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A29E1E61CCE528800773991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A29E1C11CCE528800773991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A29E20F1CCE6F1D00773991 /* MenuScene.swift in Sources */,
+				9A29E1CD1CCE528800773991 /* GameScene.swift in Sources */,
+				9A29E1CF1CCE528800773991 /* GameViewController.swift in Sources */,
+				9A29E2051CCE6B2500773991 /* GameOverScene.swift in Sources */,
+				9A29E1C91CCE528800773991 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A29E1D91CCE528800773991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A29E1E21CCE528800773991 /* GreyWraithTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A29E1E41CCE528800773991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A29E1ED1CCE528800773991 /* GreyWraithUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A29E1DF1CCE528800773991 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A29E1C41CCE528800773991 /* GreyWraith */;
+			targetProxy = 9A29E1DE1CCE528800773991 /* PBXContainerItemProxy */;
+		};
+		9A29E1EA1CCE528800773991 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A29E1C41CCE528800773991 /* GreyWraith */;
+			targetProxy = 9A29E1E91CCE528800773991 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A29E1D01CCE528800773991 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A29E1D11CCE528800773991 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9A29E1D51CCE528800773991 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A29E1D61CCE528800773991 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A29E1EF1CCE528800773991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9A29E1F01CCE528800773991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A29E1F21CCE528800773991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GreyWraith/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = csw.grey.wraith;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9A29E1F31CCE528800773991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GreyWraith/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = csw.grey.wraith;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9A29E1F51CCE528800773991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = GreyWraithTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = csw.GreyWraithTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreyWraith.app/GreyWraith";
+			};
+			name = Debug;
+		};
+		9A29E1F61CCE528800773991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GreyWraithTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = csw.GreyWraithTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreyWraith.app/GreyWraith";
+			};
+			name = Release;
+		};
+		9A29E1F81CCE528800773991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = GreyWraithUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = csw.GreyWraithUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GreyWraith;
+			};
+			name = Debug;
+		};
+		9A29E1F91CCE528800773991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GreyWraithUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = csw.GreyWraithUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GreyWraith;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A29E1C01CCE528800773991 /* Build configuration list for PBXProject "GreyWraith" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A29E1EF1CCE528800773991 /* Debug */,
+				9A29E1F01CCE528800773991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A29E1F11CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraith" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A29E1F21CCE528800773991 /* Debug */,
+				9A29E1F31CCE528800773991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A29E1F41CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraithTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A29E1F51CCE528800773991 /* Debug */,
+				9A29E1F61CCE528800773991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A29E1F71CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraithUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A29E1F81CCE528800773991 /* Debug */,
+				9A29E1F91CCE528800773991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A29E1BD1CCE528800773991 /* Project object */;
+}
