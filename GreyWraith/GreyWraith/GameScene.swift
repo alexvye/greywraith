@@ -61,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //
     // player
     //
-    let player = SKSpriteNode(imageNamed: "player1" )
+    let mob = Mob.init(newType: MobType.Player)
     
     //
     // game rules
@@ -90,13 +90,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //
         // set up plater
         //
-        
+        let player = mob.sprite
         player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size) // 1
         player.physicsBody?.dynamic = true // 2
         player.physicsBody?.categoryBitMask = PhysicsCategory.Player // 3
         player.physicsBody?.contactTestBitMask = PhysicsCategory.Monster // 4
-        player.physicsBody?.collisionBitMask = PhysicsCategory.None // 5
-        
+        player.physicsBody?.collisionBitMask = PhysicsCategory.None //
         
         //
         // init
@@ -145,7 +144,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addMonster() {
         
         // Create sprite
-        let monster = SKSpriteNode(imageNamed: "monster")
+        let mob = Mob.init(newType: MobType.Ghost)
+        let monster = mob.sprite
         
         monster.physicsBody = SKPhysicsBody(rectangleOfSize: monster.size) // 1
         monster.physicsBody?.dynamic = true // 2
@@ -186,6 +186,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        let player = mob.sprite
         
         runAction(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
         
@@ -321,7 +323,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func projectileDidCollideWithMonster(projectile:SKSpriteNode, monster:SKSpriteNode) {
 
-        print("projectile collide w/monster")
+        print("projectile collide w/monster ", monster.name)
         
         projectile.removeFromParent()
         monster.removeFromParent()

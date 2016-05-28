@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17669B87508E38C2759ED7BE /* libPods-GreyWraith.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4744FEE4959EAA30FEEECCA /* libPods-GreyWraith.a */; };
 		9A29E1C91CCE528800773991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1C81CCE528800773991 /* AppDelegate.swift */; };
 		9A29E1CD1CCE528800773991 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1CC1CCE528800773991 /* GameScene.swift */; };
 		9A29E1CF1CCE528800773991 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E1CE1CCE528800773991 /* GameViewController.swift */; };
@@ -21,6 +22,11 @@
 		9A29E20D1CCE6EBA00773991 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */; };
 		9A29E20F1CCE6F1D00773991 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E20E1CCE6F1D00773991 /* MenuScene.swift */; };
 		9A2B44521CD2B7940094FF67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */; };
+		9ABA1EFC1CF9E20C00A8C571 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA1EFB1CF9E20C00A8C571 /* Podfile */; };
+		9AE000E71CE387C300FA472B /* Mob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE000E61CE387C300FA472B /* Mob.swift */; };
+		9AF40D891CF637EB003A435F /* GreyWraithSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D881CF637EB003A435F /* GreyWraithSplash.png */; };
+		9AF40D8E1CF74ED4003A435F /* gwmain.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D8C1CF74ED4003A435F /* gwmain.png */; };
+		9AF40D8F1CF74ED5003A435F /* gwmain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D8D1CF74ED4003A435F /* gwmain@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		218508D74FFBABA4BD1364BC /* Pods-GreyWraith.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreyWraith.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreyWraith/Pods-GreyWraith.release.xcconfig"; sourceTree = "<group>"; };
 		9A29E1C51CCE528800773991 /* GreyWraith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreyWraith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A29E1C81CCE528800773991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A29E1CC1CCE528800773991 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -61,6 +68,13 @@
 		9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
 		9A29E20E1CCE6F1D00773991 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9ABA1EFB1CF9E20C00A8C571 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9AE000E61CE387C300FA472B /* Mob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mob.swift; sourceTree = "<group>"; };
+		9AF40D881CF637EB003A435F /* GreyWraithSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyWraithSplash.png; sourceTree = "<group>"; };
+		9AF40D8C1CF74ED4003A435F /* gwmain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gwmain.png; sourceTree = "<group>"; };
+		9AF40D8D1CF74ED4003A435F /* gwmain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gwmain@2x.png"; sourceTree = "<group>"; };
+		A4744FEE4959EAA30FEEECCA /* libPods-GreyWraith.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreyWraith.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C59047BA1BE2AD255827CF /* Pods-GreyWraith.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreyWraith.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreyWraith/Pods-GreyWraith.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A2B44521CD2B7940094FF67 /* SystemConfiguration.framework in Frameworks */,
+				17669B87508E38C2759ED7BE /* libPods-GreyWraith.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,14 +104,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FC0A39181DCF03F1F76C6B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4744FEE4959EAA30FEEECCA /* libPods-GreyWraith.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A29E1BC1CCE528800773991 = {
 			isa = PBXGroup;
 			children = (
+				9ABA1EFB1CF9E20C00A8C571 /* Podfile */,
+				9AF40D8C1CF74ED4003A435F /* gwmain.png */,
+				9AF40D8D1CF74ED4003A435F /* gwmain@2x.png */,
+				9AF40D881CF637EB003A435F /* GreyWraithSplash.png */,
 				9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */,
 				9A29E1C71CCE528800773991 /* GreyWraith */,
 				9A29E1E01CCE528800773991 /* GreyWraithTests */,
 				9A29E1EB1CCE528800773991 /* GreyWraithUITests */,
 				9A29E1C61CCE528800773991 /* Products */,
+				AFEF6DA68E2BAB42B703974D /* Pods */,
+				7FC0A39181DCF03F1F76C6B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +152,7 @@
 				9A29E1D81CCE528800773991 /* Info.plist */,
 				9A29E1D51CCE528800773991 /* LaunchScreen.storyboard */,
 				9A29E1D01CCE528800773991 /* Main.storyboard */,
+				9AE000E61CE387C300FA472B /* Mob.swift */,
 			);
 			path = GreyWraith;
 			sourceTree = "<group>";
@@ -163,6 +193,15 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		AFEF6DA68E2BAB42B703974D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8C59047BA1BE2AD255827CF /* Pods-GreyWraith.debug.xcconfig */,
+				218508D74FFBABA4BD1364BC /* Pods-GreyWraith.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A29E1F11CCE528800773991 /* Build configuration list for PBXNativeTarget "GreyWraith" */;
 			buildPhases = (
+				FD9916E9A613B3B781FE5532 /* 📦 Check Pods Manifest.lock */,
 				9A29E1C11CCE528800773991 /* Sources */,
 				9A29E1C21CCE528800773991 /* Frameworks */,
 				9A29E1C31CCE528800773991 /* Resources */,
+				7FEEE621CAF3ACC92DA5BE07 /* 📦 Embed Pods Frameworks */,
+				958A9D36585F03C05525236F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,12 +318,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ABA1EFC1CF9E20C00A8C571 /* Podfile in Resources */,
+				9AF40D8E1CF74ED4003A435F /* gwmain.png in Resources */,
 				9A29E20B1CCE6EAA00773991 /* background-music-aac.caf in Resources */,
 				9A29E1D71CCE528800773991 /* LaunchScreen.storyboard in Resources */,
 				9A29E1D41CCE528800773991 /* Assets.xcassets in Resources */,
 				9A29E2011CCE547100773991 /* sprites.atlas in Resources */,
 				9A29E1D21CCE528800773991 /* Main.storyboard in Resources */,
+				9AF40D891CF637EB003A435F /* GreyWraithSplash.png in Resources */,
 				9A29E20D1CCE6EBA00773991 /* pew-pew-lei.caf in Resources */,
+				9AF40D8F1CF74ED5003A435F /* gwmain@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,11 +347,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7FEEE621CAF3ACC92DA5BE07 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreyWraith/Pods-GreyWraith-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		958A9D36585F03C05525236F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreyWraith/Pods-GreyWraith-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD9916E9A613B3B781FE5532 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A29E1C11CCE528800773991 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE000E71CE387C300FA472B /* Mob.swift in Sources */,
 				9A29E20F1CCE6F1D00773991 /* MenuScene.swift in Sources */,
 				9A29E1CD1CCE528800773991 /* GameScene.swift in Sources */,
 				9A29E1CF1CCE528800773991 /* GameViewController.swift in Sources */,
@@ -450,6 +545,7 @@
 		};
 		9A29E1F21CCE528800773991 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8C59047BA1BE2AD255827CF /* Pods-GreyWraith.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GreyWraith/Info.plist;
@@ -461,6 +557,7 @@
 		};
 		9A29E1F31CCE528800773991 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218508D74FFBABA4BD1364BC /* Pods-GreyWraith.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GreyWraith/Info.plist;
