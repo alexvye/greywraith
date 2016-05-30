@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
+    var playButton: SKNode! = nil
+    
     init(size: CGSize, won:Bool) {
         //super.init(size: size)
         //self.showLeaderboard()
@@ -42,6 +44,31 @@ class GameOverScene: SKScene {
             }
             ]))
         
+    }
+    
+    override func didMoveToView(view: SKView) {
+        configureScreen()
+    }
+    
+    private func configureScreen() {
+        
+        let bgImage = SKSpriteNode(imageNamed: "gwmain")
+        bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        bgImage.zPosition = 1
+        bgImage.size =  CGSize(width: size.width, height: size.height)
+        self.addChild(bgImage)
+        
+        backgroundColor = SKColor.whiteColor()
+        
+        addButtons();
+    }
+    
+    private func addButtons() {
+        self.playButton = SKSpriteNode(imageNamed: "playbutton.png")
+        self.playButton.name = "nextButton"
+        playButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+300);
+        playButton.zPosition = 2;
+        self.addChild(playButton)
     }
     
     // 6

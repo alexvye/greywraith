@@ -10,11 +10,10 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource  {
+class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     
     var playButton: SKNode! = nil
-    var statsButton: SKNode! = nil
-    var configButton: SKNode! = nil
+    var quitButton: SKNode! = nil
     
     //
     // for stats
@@ -22,36 +21,28 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource  {
     @IBOutlet
     var tableView: UITableView!
     var items: [String] = ["Viper", "X", "Games"]
+
+    //
+    // config
+    //
+    @IBOutlet
+    var playerNameTextField: UITextField!
+    
     
     override func didMoveToView(view: SKView) {
-        //addButtons()
         configureScreen()
     }
     
     private func configureScreen() {
-        
-        //self.scaleMode = SKSceneScaleMode.ResizeFill
-        
+
         let bgImage = SKSpriteNode(imageNamed: "gwmain")
         bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         bgImage.zPosition = 1
         bgImage.size =  CGSize(width: size.width, height: size.height)
-        
-        
         self.addChild(bgImage)
         
         backgroundColor = SKColor.whiteColor()
         
-        //let message = "Do you want to play a game?"
-        /*
-        let label = SKLabelNode(fontNamed: "Chalkduster")
-        label.text = message
-        label.fontSize = 40
-        label.fontColor = SKColor.blackColor()
-        label.position = CGPoint(x: size.width/2, y: size.height/2)
-        label.zPosition = 2
-        addChild(label)
-        */
         addButtons();
     }
 
@@ -63,40 +54,29 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource  {
             // Check if the location of the touch is within the button's bounds
             if self.playButton.containsPoint(location) {
                 startGame()
-            } else if self.statsButton.containsPoint(location) {
+            } else if self.quitButton.containsPoint(location) {
                 loadStats()
             }
         }
     }
     
     private func addButtons() {
-        // Create a simple red rectangle that's 100x44
-        playButton = SKSpriteNode(color: SKColor.greenColor(), size: CGSize(width: 50, height: 30))
-        // Put it in the center of the scene
-        //button.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        self.playButton = SKSpriteNode(imageNamed: "playbutton.png")
+        self.playButton.name = "nextButton"
         playButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+300);
         playButton.zPosition = 2;
-        
-        statsButton = SKSpriteNode(color: SKColor.grayColor(), size: CGSize(width: 50, height: 30))
-        // Put it in the center of the scene
-        //button.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        statsButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+200);
-        statsButton.zPosition = 2;
-        
-        configButton = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 30))
-        // Put it in the center of the scene
-        //button.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        configButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+100);
-        configButton.zPosition = 2;
-        
         self.addChild(playButton)
-        self.addChild(statsButton)
-        self.addChild(configButton)
+        
+        self.quitButton = SKSpriteNode(imageNamed: "quitbutton.png")
+        self.quitButton.name = "nextButton"
+        quitButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+200);
+        quitButton.zPosition = 2;
+        self.addChild(quitButton)
     }
     
     private func startGame() {
         
-        self.tableView.hidden = true
+        //self.tableView.hidden = true
         
         let gameScene = GameScene(size: view!.bounds.size)
         let transition = SKTransition.fadeWithDuration(0.15)

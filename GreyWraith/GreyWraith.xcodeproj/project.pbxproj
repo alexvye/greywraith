@@ -22,6 +22,9 @@
 		9A29E20D1CCE6EBA00773991 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */; };
 		9A29E20F1CCE6F1D00773991 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29E20E1CCE6F1D00773991 /* MenuScene.swift */; };
 		9A2B44521CD2B7940094FF67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */; };
+		9A917A071CFC9594009DCD76 /* quitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A917A051CFC9594009DCD76 /* quitbutton.png */; };
+		9A917A081CFC9594009DCD76 /* statsbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A917A061CFC9594009DCD76 /* statsbutton.png */; };
+		9AAE4ADF1CFC93AF00B4E436 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AAE4ADE1CFC93AF00B4E436 /* playbutton.png */; };
 		9ABA1EFC1CF9E20C00A8C571 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA1EFB1CF9E20C00A8C571 /* Podfile */; };
 		9AE000E71CE387C300FA472B /* Mob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE000E61CE387C300FA472B /* Mob.swift */; };
 		9AF40D891CF637EB003A435F /* GreyWraithSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D881CF637EB003A435F /* GreyWraithSplash.png */; };
@@ -68,6 +71,9 @@
 		9A29E20C1CCE6EBA00773991 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
 		9A29E20E1CCE6F1D00773991 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		9A2B44511CD2B7940094FF67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9A917A051CFC9594009DCD76 /* quitbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quitbutton.png; sourceTree = "<group>"; };
+		9A917A061CFC9594009DCD76 /* statsbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statsbutton.png; sourceTree = "<group>"; };
+		9AAE4ADE1CFC93AF00B4E436 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
 		9ABA1EFB1CF9E20C00A8C571 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9AE000E61CE387C300FA472B /* Mob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mob.swift; sourceTree = "<group>"; };
 		9AF40D881CF637EB003A435F /* GreyWraithSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyWraithSplash.png; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 		9A29E1BC1CCE528800773991 = {
 			isa = PBXGroup;
 			children = (
+				9A917A051CFC9594009DCD76 /* quitbutton.png */,
+				9A917A061CFC9594009DCD76 /* statsbutton.png */,
+				9AAE4ADE1CFC93AF00B4E436 /* playbutton.png */,
 				9ABA1EFB1CF9E20C00A8C571 /* Podfile */,
 				9AF40D8C1CF74ED4003A435F /* gwmain.png */,
 				9AF40D8D1CF74ED4003A435F /* gwmain@2x.png */,
@@ -325,6 +334,9 @@
 				9A29E1D41CCE528800773991 /* Assets.xcassets in Resources */,
 				9A29E2011CCE547100773991 /* sprites.atlas in Resources */,
 				9A29E1D21CCE528800773991 /* Main.storyboard in Resources */,
+				9A917A081CFC9594009DCD76 /* statsbutton.png in Resources */,
+				9AAE4ADF1CFC93AF00B4E436 /* playbutton.png in Resources */,
+				9A917A071CFC9594009DCD76 /* quitbutton.png in Resources */,
 				9AF40D891CF637EB003A435F /* GreyWraithSplash.png in Resources */,
 				9A29E20D1CCE6EBA00773991 /* pew-pew-lei.caf in Resources */,
 				9AF40D8F1CF74ED5003A435F /* gwmain@2x.png in Resources */,
