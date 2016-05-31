@@ -47,6 +47,20 @@ extension CGPoint {
         return self / length()
     }
 }
+//
+// Stage control values
+//
+var stageColourArray: [SKColor] = [SKColor.greenColor(),
+                                   SKColor.yellowColor(),
+                                   SKColor.redColor()]
+let DEFAULT_MIN_SPEED = 2.0
+let START_AMMO = 100
+
+let AMMO_PER_STAGE = 15
+let KILLS_PER_STAGE = 10
+let STAGE_REDUCER = 0.8
+let SPEED_FLOOR = 0.2
+let CEILING_ADD = 2.0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -55,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //
     var monstersDestroyed = 0;
     var monsterEscaped = 0;
-    var ammo = 100;
+    var ammo = START_AMMO;
     var stage = 1;
     
     //
@@ -68,8 +82,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //
     var MONSTER_WIN = 10;
     var PLAYER_WIN = 5;
-    var MONSTER_MIN_SPEED = 2.0
-    var MONSTER_MAX_SPEED = 4.0
+    var MONSTER_MIN_SPEED = DEFAULT_MIN_SPEED
+    var MONSTER_MAX_SPEED = DEFAULT_MIN_SPEED + CEILING_ADD
     
     //
     // scenery constants
@@ -87,6 +101,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let escapedLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     override func didMoveToView(view: SKView) {
+        //
+        // reset
+        //
+        reset()
+        
         //
         // set up plater
         //
@@ -171,7 +190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.runBlock() {
-            self.monsterEscaped++
+            self.monsterEscaped = self.monsterEscaped + 1;
             self.escapedLabel.text = String.localizedStringWithFormat("Escaped: %d", self.monsterEscaped);
             
             if(self.monsterEscaped >= self.MONSTER_WIN) {
@@ -195,7 +214,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Defuct ammo
         //
         if(self.ammo > 0) {
-            self.ammo--
+            self.ammo = self.ammo - 1;
             
             if (self.ammo <= 0) {
                 let reveal = SKTransition.flipHorizontalWithDuration(0.5)
@@ -213,9 +232,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let touchLocation = touch.locationInNode(self)
         
         if(touchLocation.x < self.PLAYER_BOUNDARY) { // move
-            
-            // Determine speed of the player
-            let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
             
             var down = true;
             
@@ -315,6 +331,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             (secondBody.categoryBitMask & PhysicsCategory.Projectile != 0)) {
             projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
         } else if ((firstBody.categoryBitMask & PhysicsCategory.Player != 0) &&
+            // unexpected nil while unwrapping an optional value here
             (secondBody.categoryBitMask & PhysicsCategory.Monster != 0)) {
             playerDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
         }
@@ -328,6 +345,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.removeFromParent()
         monster.removeFromParent()
         monstersDestroyed = monstersDestroyed + 1
+        DataManager.updateScore(self.monstersDestroyed)
         self.updateStage()
         scoreLabel.text = String.localizedStringWithFormat("Score: %d", self.monstersDestroyed);
         if (monstersDestroyed > 30) {
@@ -359,7 +377,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: size.width-100, y: size.height-25)
         addChild(scoreLabel)
         
-        playerNameLabel.text = String.localizedStringWithFormat("Alex");
+        playerNameLabel.text = String.localizedStringWithFormat("%d", (DataManager.stats?.highScore)!);
         playerNameLabel.fontSize = 20
         playerNameLabel.fontColor = SKColor.blackColor()
         playerNameLabel.position = CGPoint(x: size.width/2-20, y: size.height-25)
@@ -379,47 +397,76 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateStage() {
-        let oldStage = self.stage;
         
-        if(self.stage == 1) {
-            if(self.monstersDestroyed >= 10) {
-                self.stage = 2;
-            }
-        } else if(stage == 2) {
-            if(self.monstersDestroyed >= 20) {
-                self.stage = 3;
-            }
-        }
+        // update high score
+        playerNameLabel.text = String.localizedStringWithFormat("%d", (DataManager.stats?.highScore)!);
         
-        if(self.stage > oldStage) {
-            self.ammo = self.ammo + 15;
-        }
         
-        configureStage()
-    }
-    
-    func configureStage() {
-        switch self.stage {
-        case 1:
-            backgroundColor = SKColor.greenColor()
-            MONSTER_MIN_SPEED = 2.0
-            MONSTER_MAX_SPEED = 4.0
-        case 2:
-            backgroundColor = SKColor.yellowColor()
-            MONSTER_MIN_SPEED = 1.5;
-            MONSTER_MAX_SPEED = 3.5;
+        //
+        // update stage (ammo, colour, stage, speend (min and max)
+        //
+        
+        //
+        // check if stage should be updated
+        //
+        let target = (self.stage) * KILLS_PER_STAGE;
+        
+        print(target, self.stage, KILLS_PER_STAGE, self.monstersDestroyed )
+        
+        if(self.monstersDestroyed > target) {
+            //
+            // update stage
+            //
+            self.stage = self.stage + 1
             
-        case 3:
-            backgroundColor = SKColor.redColor()
-            MONSTER_MIN_SPEED = 1.0
-            MONSTER_MAX_SPEED = 3.0
-
-        default:
-            backgroundColor = SKColor.greenColor()
-            MONSTER_MIN_SPEED = 2.0
-            MONSTER_MAX_SPEED = 4.0
+            //
+            // update ammo
+            //
+            self.ammo = self.ammo + AMMO_PER_STAGE
+            
+            //
+            // update speeds
+            //
+            MONSTER_MIN_SPEED = MONSTER_MIN_SPEED * STAGE_REDUCER
+            
+            if(MONSTER_MIN_SPEED < SPEED_FLOOR) {
+                MONSTER_MIN_SPEED = SPEED_FLOOR
+            }
+            
+            MONSTER_MAX_SPEED = MONSTER_MIN_SPEED + CEILING_ADD
+            
+            //
+            // Update colours
+            //
+            var index = 0;
+            
+            print(self.stage, stageColourArray.count)
+            if(self.stage <= stageColourArray.count) {
+                
+                index  = self.stage - 1;
+            } else {
+                let remainder = self.stage %  stageColourArray.count
+                index = remainder - 1;
+            }
+            //Int remainder = stageColourArray.count
+            self.backgroundColor = stageColourArray[index]
+            
+            
+            //
+            // Update monsters
+            //
+            // (maybe at later stages add new monsters)
         }
     }
     
-    
+    func reset() {
+        
+        MONSTER_MIN_SPEED = DEFAULT_MIN_SPEED
+        MONSTER_MAX_SPEED = DEFAULT_MIN_SPEED + CEILING_ADD
+        
+        self.monstersDestroyed = 0
+        self.ammo = START_AMMO
+        self.monsterEscaped = 0
+        self.stage = 1
+    }
 }

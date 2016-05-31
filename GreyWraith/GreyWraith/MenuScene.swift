@@ -16,12 +16,12 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextField
     var quitButton: SKNode! = nil
     
     //
-    // for stats
+    // for stats (unused currently)
     //
     @IBOutlet
     var tableView: UITableView!
     var items: [String] = ["Viper", "X", "Games"]
-
+    
     //
     // config
     //
@@ -30,9 +30,18 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextField
     
     
     override func didMoveToView(view: SKView) {
+        
+        //
+        // state
+        //
+        DataManager.loadData()
+        
+        //
+        // screen
+        //
         configureScreen()
     }
-    
+
     private func configureScreen() {
 
         let bgImage = SKSpriteNode(imageNamed: "gwmain")

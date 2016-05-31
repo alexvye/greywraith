@@ -34,6 +34,7 @@ class GameOverScene: SKScene {
         addChild(label)
         
         // 4
+        /*
         runAction(SKAction.sequence([
             SKAction.waitForDuration(3.0),
             SKAction.runBlock() {
@@ -43,7 +44,8 @@ class GameOverScene: SKScene {
                 self.view?.presentScene(scene, transition:reveal)
             }
             ]))
-        
+
+ */
     }
     
     override func didMoveToView(view: SKView) {
@@ -63,6 +65,18 @@ class GameOverScene: SKScene {
         addButtons();
     }
     
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // Loop over all the touches in this event
+        for touch: AnyObject in touches {
+            // Get the location of the touch in this scene
+            let location = touch.locationInNode(self)
+            // Check if the location of the touch is within the button's bounds
+            if self.playButton.containsPoint(location) {
+                restartGame()
+            }
+        }
+    }
+    
     private func addButtons() {
         self.playButton = SKSpriteNode(imageNamed: "playbutton.png")
         self.playButton.name = "nextButton"
@@ -74,5 +88,11 @@ class GameOverScene: SKScene {
     // 6
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func restartGame() {
+        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        let scene = GameScene(size: size)
+        self.view?.presentScene(scene, transition:reveal)
     }
 }
