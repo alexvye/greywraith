@@ -71,11 +71,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var monsterEscaped = 0;
     var ammo = START_AMMO;
     var stage = 1;
+    var monsterHp = [String: Int]()
     
     //
     // player
     //
-    let mob = Mob.init(newType: MobType.Player)
+    let playerMob = Mob.init(newType: MobType.Player)
+
     
     //
     // game rules
@@ -99,6 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerNameLabel = SKLabelNode(fontNamed: "Chalkduster")
     let ammoLabel = SKLabelNode(fontNamed: "Chalkduster")
     let escapedLabel = SKLabelNode(fontNamed: "Chalkduster")
+    let stageLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     override func didMoveToView(view: SKView) {
         //
@@ -109,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //
         // set up plater
         //
-        let player = mob.sprite
+        let player = playerMob.sprite
         player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size) // 1
         player.physicsBody?.dynamic = true // 2
         player.physicsBody?.categoryBitMask = PhysicsCategory.Player // 3
@@ -165,6 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Create sprite
         let mob = Mob.init(newType: MobType.Ghost)
         let monster = mob.sprite
+        self.addMonsterHp(monster.name!)
         
         monster.physicsBody = SKPhysicsBody(rectangleOfSize: monster.size) // 1
         monster.physicsBody?.dynamic = true // 2
@@ -206,7 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        let player = mob.sprite
+        let player = playerMob.sprite
         
         runAction(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
         
@@ -234,9 +238,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(touchLocation.x < self.PLAYER_BOUNDARY) { // move
             
             var down = true;
-            
-            print("player position is ", player.position.y)
-            print("touch position is ", touchLocation.y)
             
             if(touchLocation.y > player.position.y) {
                 down = false;
@@ -277,7 +278,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else {  // shoot
             
             // Set up initial location of projectile
-            let projectile = SKSpriteNode(imageNamed: "fireball")
+            let mob = Mob.init(newType: MobType.Fireball)
+            let projectile = mob.sprite
             projectile.position = player.position
         
             projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
@@ -318,6 +320,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // 1
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
+        
+       
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -329,7 +333,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // 2
         if ((firstBody.categoryBitMask & PhysicsCategory.Monster != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Projectile != 0)) {
-            projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, monster: secondBody.node as! SKSpriteNode)
+            projectileDidCollideWithMonster(firstBody.node as! SKSpriteNode, projectile: secondBody.node as! SKSpriteNode)
         } else if ((firstBody.categoryBitMask & PhysicsCategory.Player != 0) &&
             // unexpected nil while unwrapping an optional value here
             (secondBody.categoryBitMask & PhysicsCategory.Monster != 0)) {
@@ -338,9 +342,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func projectileDidCollideWithMonster(projectile:SKSpriteNode, monster:SKSpriteNode) {
+    func projectileDidCollideWithMonster(monster:SKSpriteNode, projectile:SKSpriteNode) {
 
-        print("projectile collide w/monster ", monster.name)
+        print("projectile collide w/monster ", monster.name!)
+        self.hitMonster(monster.name!)
         
         projectile.removeFromParent()
         monster.removeFromParent()
@@ -377,7 +382,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: size.width-100, y: size.height-25)
         addChild(scoreLabel)
         
-        playerNameLabel.text = String.localizedStringWithFormat("%d", (DataManager.stats?.highScore)!);
+        playerNameLabel.text = String.localizedStringWithFormat("High Score: %d", (DataManager.stats?.highScore)!);
         playerNameLabel.fontSize = 20
         playerNameLabel.fontColor = SKColor.blackColor()
         playerNameLabel.position = CGPoint(x: size.width/2-20, y: size.height-25)
@@ -394,6 +399,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         escapedLabel.fontColor = SKColor.blackColor()
         escapedLabel.position = CGPoint(x: 100, y: size.height-25)
         addChild(escapedLabel)
+        
+        stageLabel.text = String.localizedStringWithFormat("Stage: %d", self.stage);
+        stageLabel.fontSize = 20
+        stageLabel.fontColor = SKColor.blackColor()
+        stageLabel.position = CGPoint(x: 100, y: size.height-50)
+        addChild(stageLabel)
     }
     
     func updateStage() {
@@ -411,13 +422,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //
         let target = (self.stage) * KILLS_PER_STAGE;
         
-        print(target, self.stage, KILLS_PER_STAGE, self.monstersDestroyed )
-        
         if(self.monstersDestroyed > target) {
             //
             // update stage
             //
             self.stage = self.stage + 1
+            stageLabel.text = String.localizedStringWithFormat("Stage: %d", self.stage);
             
             //
             // update ammo
@@ -440,7 +450,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //
             var index = 0;
             
-            print(self.stage, stageColourArray.count)
             if(self.stage <= stageColourArray.count) {
                 
                 index  = self.stage - 1;
@@ -468,5 +477,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.ammo = START_AMMO
         self.monsterEscaped = 0
         self.stage = 1
+    }
+    
+    private func addMonsterHp(name:String) {
+        
+        if monsterHp[name] != nil {
+            print("Found")
+        } else {
+            print("not found, adding")
+            monsterHp[name] = 1
+        }
+    }
+    
+    private func hitMonster(name:String) {
+        
+        if var hp = monsterHp[name] {
+            print("Found", name)
+            hp = hp - 1
+            if(hp<=0) {
+                print("killed",name)
+                monsterHp.removeValueForKey(name)
+            } else {
+                print("damaged", name)
+                monsterHp[name] = hp
+            }
+        }
     }
 }

@@ -20,13 +20,11 @@ class Mob {
     var sprite: SKSpriteNode
     var hitPoints: Int
     var type: MobType
-    var name: String
 
     init(newType:MobType) {
-        sprite = getSpriteForType(newType)
-        type = newType
-        hitPoints = getHitPointsForType(newType)
-        name = "Leroy"
+        self.sprite = getSpriteForType(newType)
+        self.type = newType
+        self.hitPoints = getHitPointsForType(newType)
     }
 }
 
@@ -38,12 +36,12 @@ func getSpriteForType(mobType:MobType) -> SKSpriteNode {
         case MobType.Player:
             newSprite = SKSpriteNode(imageNamed: "player1")
         case MobType.Ghost:
-            newSprite = SKSpriteNode(imageNamed: "monster")
+            newSprite = SKSpriteNode(imageNamed: "shelob1")
         case MobType.Fireball:
             newSprite = SKSpriteNode(imageNamed: "fireball")
     }
     
-    newSprite.name = NSUUID().UUIDString;
+    newSprite.name = NSUUID().UUIDString
     
     return newSprite
 }
