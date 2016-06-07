@@ -28,11 +28,11 @@
 		9A917A0C1CFCAC3D009DCD76 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A917A0B1CFCAC3D009DCD76 /* DataManager.swift */; };
 		9AAE4ADF1CFC93AF00B4E436 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AAE4ADE1CFC93AF00B4E436 /* playbutton.png */; };
 		9ABA1EFC1CF9E20C00A8C571 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA1EFB1CF9E20C00A8C571 /* Podfile */; };
-		9ADAA4601CFF2BFA0074FC83 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ADAA45F1CFF2BFA0074FC83 /* icon.png */; };
 		9AE000E71CE387C300FA472B /* Mob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE000E61CE387C300FA472B /* Mob.swift */; };
 		9AF40D891CF637EB003A435F /* GreyWraithSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D881CF637EB003A435F /* GreyWraithSplash.png */; };
 		9AF40D8E1CF74ED4003A435F /* gwmain.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D8C1CF74ED4003A435F /* gwmain.png */; };
 		9AF40D8F1CF74ED5003A435F /* gwmain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF40D8D1CF74ED4003A435F /* gwmain@2x.png */; };
+		9AF7E40F1D0515AE00223058 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7E40E1D0515AE00223058 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,11 +80,11 @@
 		9A917A0B1CFCAC3D009DCD76 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		9AAE4ADE1CFC93AF00B4E436 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
 		9ABA1EFB1CF9E20C00A8C571 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9ADAA45F1CFF2BFA0074FC83 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9AE000E61CE387C300FA472B /* Mob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mob.swift; sourceTree = "<group>"; };
 		9AF40D881CF637EB003A435F /* GreyWraithSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyWraithSplash.png; sourceTree = "<group>"; };
 		9AF40D8C1CF74ED4003A435F /* gwmain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gwmain.png; sourceTree = "<group>"; };
 		9AF40D8D1CF74ED4003A435F /* gwmain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gwmain@2x.png"; sourceTree = "<group>"; };
+		9AF7E40E1D0515AE00223058 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A4744FEE4959EAA30FEEECCA /* libPods-GreyWraith.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreyWraith.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C59047BA1BE2AD255827CF /* Pods-GreyWraith.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreyWraith.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreyWraith/Pods-GreyWraith.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,7 +127,7 @@
 		9A29E1BC1CCE528800773991 = {
 			isa = PBXGroup;
 			children = (
-				9ADAA45F1CFF2BFA0074FC83 /* icon.png */,
+				9AF7E40E1D0515AE00223058 /* icon.png */,
 				9A917A051CFC9594009DCD76 /* quitbutton.png */,
 				9A917A061CFC9594009DCD76 /* statsbutton.png */,
 				9AAE4ADE1CFC93AF00B4E436 /* playbutton.png */,
@@ -384,7 +384,7 @@
 				9A29E2011CCE547100773991 /* sprites.atlas in Resources */,
 				9A29E1D21CCE528800773991 /* Main.storyboard in Resources */,
 				9A917A081CFC9594009DCD76 /* statsbutton.png in Resources */,
-				9ADAA4601CFF2BFA0074FC83 /* icon.png in Resources */,
+				9AF7E40F1D0515AE00223058 /* icon.png in Resources */,
 				9AAE4ADF1CFC93AF00B4E436 /* playbutton.png in Resources */,
 				9A917A071CFC9594009DCD76 /* quitbutton.png in Resources */,
 				9AF40D891CF637EB003A435F /* GreyWraithSplash.png in Resources */,

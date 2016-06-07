@@ -13,7 +13,7 @@ class GameOverScene: SKScene {
     
     var playButton: SKNode! = nil
     
-    init(size: CGSize, won:Bool) {
+    init(size: CGSize, won:Bool, message:String) {
         //super.init(size: size)
         //self.showLeaderboard()
         
@@ -23,15 +23,24 @@ class GameOverScene: SKScene {
         backgroundColor = SKColor.whiteColor()
         
         // 2
-        let message = won ? "You Won!" : "You Lose :["
+        let topMessage = won ? "You Won!" : "You Lose :["
         
         // 3
         let label = SKLabelNode(fontNamed: "Chalkduster")
-        label.text = message
-        label.fontSize = 40
+        label.text = topMessage
+        label.fontSize = 24
         label.fontColor = SKColor.blackColor()
-        label.position = CGPoint(x: size.width/2, y: size.height/2)
+        label.position = CGPoint(x: (size.width * 0.6), y: (size.height * 0.6))
+        label.zPosition = 4;
         addChild(label)
+        
+        let label2 = SKLabelNode(fontNamed: "Chalkduster")
+        label2.text = message
+        label2.fontSize = 24
+        label2.fontColor = SKColor.blackColor()
+        label2.position = CGPoint(x: (size.width * 0.6), y: (size.height * 0.3))
+        label2.zPosition = 5;
+        addChild(label2)
         
         // 4
         /*

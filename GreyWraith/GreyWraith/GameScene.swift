@@ -86,6 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var PLAYER_WIN = 5;
     var MONSTER_MIN_SPEED = DEFAULT_MIN_SPEED
     var MONSTER_MAX_SPEED = DEFAULT_MIN_SPEED + CEILING_ADD
+    var VICTORY = 30
     
     //
     // scenery constants
@@ -102,6 +103,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let ammoLabel = SKLabelNode(fontNamed: "Chalkduster")
     let escapedLabel = SKLabelNode(fontNamed: "Chalkduster")
     let stageLabel = SKLabelNode(fontNamed: "Chalkduster")
+    
+    //
+    // textures
+    //
+    var shelobWalkingFrames : [SKTexture]!
+    var greyFrames : [SKTexture]!
+    var explosionFrames : [SKTexture]!
+    let atlas = SKTextureAtlas(named: "sprites")
     
     override func didMoveToView(view: SKView) {
         //
@@ -152,7 +161,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
         //backgroundMusic.autoplayLooped = true
         //addChild(backgroundMusic)
-
+        //
+        // atlas
+        //
+        setupShelobAnim()
+        setupGreyAnim()
+        setupExpAnim()
     }
     
     func random() -> CGFloat {
@@ -191,6 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Create the actions
         let actionMove = SKAction.moveTo(CGPoint(x: -monster.size.width/2, y: actualY), duration: NSTimeInterval(actualDuration))
+        
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.runBlock() {
@@ -199,20 +214,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if(self.monsterEscaped >= self.MONSTER_WIN) {
                 let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-                let gameOverScene = GameOverScene(size: self.size, won: false)
+                var won = false
+                if(self.monstersDestroyed >= self.VICTORY) {
+                    won = true
+                }
+                let gameOverScene = GameOverScene(size: self.size, won: won, message: "Too many monsters escaped")
                 self.view?.presentScene(gameOverScene, transition: reveal)
-                //self.submitScore()
             }
  
         }
-        monster.runAction(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+        
+        // 1
+        if (monster.actionForKey("shelobMoving") != nil) {
+            //stop just the moving to a new location, but leave the walking legs movement running
+            monster.removeActionForKey("shelobMoving")
+        }
+        
+        // 2
+        if (monster.actionForKey("shelobMoving") == nil) {
+            //if legs are not moving go ahead and start them
+            walkingShelob(monster)
+        }
+        
+        monster.runAction(SKAction.sequence([actionMove, loseAction, actionMoveDone]),withKey:"shelobMoving")
     }
     
+    func walkingShelob(shelob:SKSpriteNode) {
+        //This is our general runAction method to make shelob walk.
+        shelob.runAction(SKAction.repeatActionForever(
+            SKAction.animateWithTextures(shelobWalkingFrames,
+                timePerFrame: 0.1,
+                resize: false,
+                restore: true)),
+                       withKey:"walkingInPlaceShelob")
+    }
+    
+    func firingGrey(grey:SKSpriteNode) {
+        //This is our general runAction method to make shelob walk.
+        grey.runAction(SKAction.repeatAction(
+            SKAction.animateWithTextures(greyFrames,timePerFrame: 0.1,resize: false,restore: true),
+            count: 1))
+    }
+    
+    func explode(bomb:SKSpriteNode) {
+        //This is our general runAction method to make shelob walk.
+        bomb.runAction(SKAction.repeatAction(
+            SKAction.animateWithTextures(explosionFrames,timePerFrame: 0.3,resize: false,restore: true),
+            count: 1))
+    }
+ 
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         let player = playerMob.sprite
         
-        runAction(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
         
         //
         // Defuct ammo
@@ -222,7 +276,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if (self.ammo <= 0) {
                 let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-                let gameOverScene = GameOverScene(size: self.size, won: false)
+                var won = false
+                if(self.monstersDestroyed >= self.VICTORY) {
+                    won = true
+                }
+                let gameOverScene = GameOverScene(size: self.size, won: won, message: "Out of ammo")
                 self.view?.presentScene(gameOverScene, transition: reveal)
             }
             
@@ -261,14 +319,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let actionMove = SKAction.moveTo(CGPoint(x: player.position.x, y: newY), duration: NSTimeInterval(CGFloat(0.2)))
             
             let moveAction = SKAction.runBlock() {
-                
-                NSLog("player moved")
+
                 
             }
             
             let doneAction = SKAction.runBlock() {
                 
-                NSLog("player move done")
                 
             }
             
@@ -276,6 +332,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         } else {  // shoot
+            
+            runAction(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
+        
+            firingGrey(player)
             
             // Set up initial location of projectile
             let mob = Mob.init(newType: MobType.Fireball)
@@ -344,7 +404,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func projectileDidCollideWithMonster(monster:SKSpriteNode, projectile:SKSpriteNode) {
 
-        print("projectile collide w/monster ", monster.name!)
         self.hitMonster(monster.name!)
         
         projectile.removeFromParent()
@@ -353,19 +412,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         DataManager.updateScore(self.monstersDestroyed)
         self.updateStage()
         scoreLabel.text = String.localizedStringWithFormat("Score: %d", self.monstersDestroyed);
-        if (monstersDestroyed > 30) {
+        
+        /*
+        if (monstersDestroyed > 20) {
             let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-            let gameOverScene = GameOverScene(size: self.size, won: true)
+            let gameOverScene = GameOverScene(size: self.size, won: true, message: "You won!")
             self.view?.presentScene(gameOverScene, transition: reveal)
         }
+ */
     }
     
     func playerDidCollideWithMonster(player:SKSpriteNode, monster:SKSpriteNode) {
         
-        print("player collide w/monster")
+        
+        //let explosion = Mob.init(newType: MobType.Explosion).sprite
+        //explosion.position = player.position
+        //explosion.zPosition = 5
+        //self.explode(explosion)
         
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-        let gameOverScene = GameOverScene(size: self.size, won: false)
+        var won = false
+        if(self.monstersDestroyed >= VICTORY) {
+            won = true
+        }
+        let gameOverScene = GameOverScene(size: self.size, won: won, message:"Monster killed you")
         self.view?.presentScene(gameOverScene, transition: reveal)
 
     }
@@ -482,23 +552,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func addMonsterHp(name:String) {
         
         if monsterHp[name] != nil {
-            print("Found")
+            
         } else {
-            print("not found, adding")
+
             monsterHp[name] = 1
         }
+    }
+    
+    private func setupShelobAnim() {
+
+        var walkFrames = [SKTexture]()
+
+        var spiderTextureName = "shelob1"
+        walkFrames.append(atlas.textureNamed(spiderTextureName))
+        spiderTextureName = "shelob2"
+        walkFrames.append(atlas.textureNamed(spiderTextureName))
+        
+        shelobWalkingFrames = walkFrames
+    }
+    
+    private func setupGreyAnim() {
+        
+        var frames = [SKTexture]()
+        
+        frames.append(atlas.textureNamed("playerfiring2"))
+        frames.append(atlas.textureNamed("playerfiring1"))
+        frames.append(atlas.textureNamed("playerfiring2"))
+        
+        greyFrames = frames
+    }
+    
+    private func setupExpAnim() {
+        
+        var frames = [SKTexture]()
+        frames.append(atlas.textureNamed("explos1"))
+        frames.append(atlas.textureNamed("explos2"))
+        explosionFrames = frames
     }
     
     private func hitMonster(name:String) {
         
         if var hp = monsterHp[name] {
-            print("Found", name)
+
             hp = hp - 1
             if(hp<=0) {
-                print("killed",name)
+
                 monsterHp.removeValueForKey(name)
             } else {
-                print("damaged", name)
+ 
                 monsterHp[name] = hp
             }
         }

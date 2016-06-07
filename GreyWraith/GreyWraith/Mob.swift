@@ -13,6 +13,7 @@ enum MobType {
     case Player
     case Ghost
     case Fireball
+    case Explosion
 }
 
 class Mob {
@@ -34,11 +35,13 @@ func getSpriteForType(mobType:MobType) -> SKSpriteNode {
     
     switch(mobType) {
         case MobType.Player:
-            newSprite = SKSpriteNode(imageNamed: "player1")
+            newSprite = SKSpriteNode(imageNamed: "playerfiring2")
         case MobType.Ghost:
             newSprite = SKSpriteNode(imageNamed: "shelob1")
         case MobType.Fireball:
             newSprite = SKSpriteNode(imageNamed: "fireball")
+    case MobType.Explosion:
+            newSprite = SKSpriteNode(imageNamed: "explos1")
     }
     
     newSprite.name = NSUUID().UUIDString
