@@ -28,11 +28,11 @@ class GameViewController: UIViewController  {
         sceneView.ignoresSiblingOrder = true
         
         let scene = MenuScene(size: view.bounds.size)
-        scene.scaleMode = .ResizeFill
+        scene.scaleMode = .resizeFill
         sceneView.presentScene(scene)
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }

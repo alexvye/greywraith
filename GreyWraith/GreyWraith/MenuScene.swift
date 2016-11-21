@@ -29,7 +29,7 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextField
     var playerNameTextField: UITextField!
     
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         //
         // state
@@ -42,65 +42,65 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextField
         configureScreen()
     }
 
-    private func configureScreen() {
+    fileprivate func configureScreen() {
 
         let bgImage = SKSpriteNode(imageNamed: "gwmain")
-        bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        bgImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         bgImage.zPosition = 1
         bgImage.size =  CGSize(width: size.width, height: size.height)
         self.addChild(bgImage)
         
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.white
         
         addButtons();
     }
 
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Loop over all the touches in this event
         for touch: AnyObject in touches {
             // Get the location of the touch in this scene
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             // Check if the location of the touch is within the button's bounds
-            if self.playButton.containsPoint(location) {
+            if self.playButton.contains(location) {
                 startGame()
-            } else if self.quitButton.containsPoint(location) {
+            } else if self.quitButton.contains(location) {
                 loadStats()
             }
         }
     }
     
-    private func addButtons() {
+    fileprivate func addButtons() {
         self.playButton = SKSpriteNode(imageNamed: "playbutton.png")
         self.playButton.name = "nextButton"
-        playButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+300);
+        playButton.position = CGPoint(x:self.frame.maxX-100, y:self.frame.minY+300);
         playButton.zPosition = 2;
         self.addChild(playButton)
         
         self.quitButton = SKSpriteNode(imageNamed: "quitbutton.png")
         self.quitButton.name = "nextButton"
-        quitButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+200);
+        quitButton.position = CGPoint(x:self.frame.maxX-100, y:self.frame.minY+200);
         quitButton.zPosition = 2;
         self.addChild(quitButton)
     }
     
-    private func startGame() {
+    fileprivate func startGame() {
         
         //self.tableView.hidden = true
         
         let gameScene = GameScene(size: view!.bounds.size)
-        let transition = SKTransition.fadeWithDuration(0.15)
+        let transition = SKTransition.fade(withDuration: 0.15)
         view!.presentScene(gameScene, transition: transition)
     }
     
-    private func loadStats() {
+    fileprivate func loadStats() {
 
         tableView = UITableView()
         tableView?.delegate = self;
         tableView?.dataSource = self;
         
-        let navRect = CGRectMake(CGRectGetMidX(self.frame), 25, size.width/4, size.height*(0.85))
+        let navRect = CGRect(x: self.frame.midX, y: 25, width: size.width/4, height: size.height*(0.85))
         tableView.frame = navRect
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.view!.addSubview(tableView)
     }
@@ -108,13 +108,13 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextField
     //
     // For stats
     //
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row]
         
@@ -122,7 +122,7 @@ class MenuScene: SKScene,UITableViewDelegate, UITableViewDataSource, UITextField
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
 }

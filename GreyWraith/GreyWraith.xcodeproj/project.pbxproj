@@ -335,6 +335,7 @@
 					9A29E1C41CCE528800773991 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = X6A4X9GJKQ;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -613,10 +614,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alex Vye (X6A4X9GJKQ)";
+				DEVELOPMENT_TEAM = X6A4X9GJKQ;
 				INFOPLIST_FILE = GreyWraith/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csw.grey.wraith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9a3a68bd-6ed3-4c3a-b3b4-c2a6164860b1";
+				PROVISIONING_PROFILE_SPECIFIER = "GreyW Dist";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -626,10 +631,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alex Vye (X6A4X9GJKQ)";
+				DEVELOPMENT_TEAM = X6A4X9GJKQ;
 				INFOPLIST_FILE = GreyWraith/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csw.grey.wraith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9a3a68bd-6ed3-4c3a-b3b4-c2a6164860b1";
+				PROVISIONING_PROFILE_SPECIFIER = "GreyW Dist";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

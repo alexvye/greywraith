@@ -20,7 +20,7 @@ class GameOverScene: SKScene {
         super.init(size: size)
         
         // 1
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.white
         
         // 2
         let topMessage = won ? "You Won!" : "You Lose :["
@@ -29,7 +29,7 @@ class GameOverScene: SKScene {
         let label = SKLabelNode(fontNamed: "Chalkduster")
         label.text = topMessage
         label.fontSize = 24
-        label.fontColor = SKColor.blackColor()
+        label.fontColor = SKColor.black
         label.position = CGPoint(x: (size.width * 0.6), y: (size.height * 0.6))
         label.zPosition = 4;
         addChild(label)
@@ -37,7 +37,7 @@ class GameOverScene: SKScene {
         let label2 = SKLabelNode(fontNamed: "Chalkduster")
         label2.text = message
         label2.fontSize = 24
-        label2.fontColor = SKColor.blackColor()
+        label2.fontColor = SKColor.black
         label2.position = CGPoint(x: (size.width * 0.6), y: (size.height * 0.3))
         label2.zPosition = 5;
         addChild(label2)
@@ -57,39 +57,39 @@ class GameOverScene: SKScene {
  */
     }
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         configureScreen()
     }
     
-    private func configureScreen() {
+    fileprivate func configureScreen() {
         
         let bgImage = SKSpriteNode(imageNamed: "gwmain")
-        bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        bgImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         bgImage.zPosition = 1
         bgImage.size =  CGSize(width: size.width, height: size.height)
         self.addChild(bgImage)
         
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.white
         
         addButtons();
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Loop over all the touches in this event
         for touch: AnyObject in touches {
             // Get the location of the touch in this scene
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             // Check if the location of the touch is within the button's bounds
-            if self.playButton.containsPoint(location) {
+            if self.playButton.contains(location) {
                 restartGame()
             }
         }
     }
     
-    private func addButtons() {
+    fileprivate func addButtons() {
         self.playButton = SKSpriteNode(imageNamed: "playbutton.png")
         self.playButton.name = "nextButton"
-        playButton.position = CGPoint(x:CGRectGetMaxX(self.frame)-100, y:CGRectGetMinY(self.frame)+300);
+        playButton.position = CGPoint(x:self.frame.maxX-100, y:self.frame.minY+300);
         playButton.zPosition = 2;
         self.addChild(playButton)
     }
@@ -99,8 +99,8 @@ class GameOverScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func restartGame() {
-        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+    fileprivate func restartGame() {
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let scene = GameScene(size: size)
         self.view?.presentScene(scene, transition:reveal)
     }

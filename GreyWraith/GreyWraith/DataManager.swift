@@ -7,6 +7,30 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class DataManager {
     
@@ -17,11 +41,11 @@ class DataManager {
         
         if(self.stats == nil) {
         
-            let ud = NSUserDefaults.standardUserDefaults()
+            let ud = UserDefaults.standard
         
-            if let data = ud.objectForKey(STATS_NAME) as? NSData {
-                let unarc = NSKeyedUnarchiver(forReadingWithData: data)
-                self.stats = (unarc.decodeObjectForKey("root") as! Statistics)
+            if let data = ud.object(forKey: STATS_NAME) as? Data {
+                let unarc = NSKeyedUnarchiver(forReadingWith: data)
+                self.stats = (unarc.decodeObject(forKey: "root") as! Statistics)
                 
             } else {
                 stats = Statistics()
@@ -33,13 +57,13 @@ class DataManager {
         return self.stats!
     }
     
-    static func saveData(statistics : Statistics) {
+    static func saveData(_ statistics : Statistics) {
         self.stats = statistics
-        let ud = NSUserDefaults.standardUserDefaults()
-        ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(statistics), forKey: STATS_NAME)
+        let ud = UserDefaults.standard
+        ud.set(NSKeyedArchiver.archivedData(withRootObject: statistics), forKey: STATS_NAME)
     }
     
-    static func updateScore(score : Int) {
+    static func updateScore(_ score : Int) {
         if(score > self.stats?.highScore) {
             self.stats?.highScore = score
             self.saveData(self.stats!)

@@ -10,10 +10,10 @@ import Foundation
 import SpriteKit
 
 enum MobType {
-    case Player
-    case Ghost
-    case Fireball
-    case Explosion
+    case player
+    case ghost
+    case fireball
+    case explosion
 }
 
 class Mob {
@@ -29,34 +29,34 @@ class Mob {
     }
 }
 
-func getSpriteForType(mobType:MobType) -> SKSpriteNode {
+func getSpriteForType(_ mobType:MobType) -> SKSpriteNode {
     
     var newSprite:SKSpriteNode
     
     switch(mobType) {
-        case MobType.Player:
+        case MobType.player:
             newSprite = SKSpriteNode(imageNamed: "playerfiring2")
-        case MobType.Ghost:
+        case MobType.ghost:
             newSprite = SKSpriteNode(imageNamed: "shelob1")
-        case MobType.Fireball:
+        case MobType.fireball:
             newSprite = SKSpriteNode(imageNamed: "fireball")
-    case MobType.Explosion:
+    case MobType.explosion:
             newSprite = SKSpriteNode(imageNamed: "explos1")
     }
     
-    newSprite.name = NSUUID().UUIDString
+    newSprite.name = UUID().uuidString
     
     return newSprite
 }
 
-func getHitPointsForType(mobType:MobType) -> Int {
+func getHitPointsForType(_ mobType:MobType) -> Int {
     
     var hp:Int
     
     switch(mobType) {
-        case MobType.Player:
+        case MobType.player:
             hp = 2;
-        case MobType.Ghost:
+        case MobType.ghost:
             hp = 2;
         default:
             hp = 1;
@@ -65,15 +65,15 @@ func getHitPointsForType(mobType:MobType) -> Int {
     return hp
 }
 
-func generateNameForType(mobType:MobType) -> String {
+func generateNameForType(_ mobType:MobType) -> String {
     
     var name:String
     
     switch(mobType) {
-        case MobType.Ghost:
-            name = NSUUID().UUIDString;
+        case MobType.ghost:
+            name = UUID().uuidString;
         default:
-            name = NSUUID().UUIDString;
+            name = UUID().uuidString;
     }
     
     return name

@@ -15,14 +15,14 @@ class Statistics : NSObject, NSCoding  {
     override init() {}
     
     required init(coder aDecoder: NSCoder) {
-        if let highScore = aDecoder.decodeObjectForKey("highScore") as? Int {
+        if let highScore = aDecoder.decodeObject(forKey: "highScore") as? Int {
             self.highScore = highScore
         }
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         if let highScore = self.highScore {
-            aCoder.encodeObject(highScore, forKey: "highScore")
+            aCoder.encode(highScore, forKey: "highScore")
         }
     }
 }
